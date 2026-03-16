@@ -9,7 +9,7 @@ It is compatible with Windows, macOS, and Linux.
 
 
 <h1 align="left">
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <a href="https://github.com/mewzers/Nova/releases"><img src="images/W11.png" width="150"></a>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <a href="https://github.com/mewzers/Nova/releases"><img src="images/Linux.png" width="140"></a>
