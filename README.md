@@ -29,11 +29,14 @@ It is compatible with Windows, macOS, and Linux.
   <img src="https://img.shields.io/badge/Rust-100%25-red" width="145">
   <br>
 </h1>
-
+<h1 align="left">
+  Emulator :
+  <br><br>
+  
 
 <h1 align="left">
   Gallery :
-  <br>  <br>
+  <br><br>
 
 |                Space Invaders                 |                   Snake                   |
 | :------------------------------------------:  |:----------------------------------------: |
