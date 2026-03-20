@@ -25,9 +25,9 @@ It helps to understand key Rust concepts (memory management, structs, ownership,
 
 The goal is to provide a solid foundation for both mastering Rust and understanding how emulators work, making it easier to build similar projects for other consoles in the future.
 
-<h1 align="left"> Compatibility :</h1>
+<h1 align="left"> Compatibility :
 
-<h1 align="center">
+<p align="center">
  <a href="https://github.com/OxideChip8/Oxide/releases">
     <picture>
       <source srcset="images/svg/W11.svg" type="image/svg+xml">
@@ -50,8 +50,8 @@ The goal is to provide a solid foundation for both mastering Rust and understand
   </a>
   <br>
   
-  <b>Windows 11, Linux and macOS</b>
-  <br>
+  <p align="center"><b>Windows 11, Linux and macOS</b></p>
+  </p>
 </h1>
 
 
