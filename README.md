@@ -2,6 +2,8 @@
 <h1 align="center">
   <b>Oxide - Chip8</b>
   <br>
+  <sub>A modern CHIP-8 emulator written in Rust<sub>
+  <br>
   <a href="https://github.com/OxideChip8/Oxide"><img src="images/Oxide.png" width="290"></a>
   <br>
 </h1>
