@@ -69,8 +69,13 @@ The goal is to provide a solid foundation for both mastering Rust and understand
 <h1 align="left">
   Emulator :
   <br><br>
-  
-WIP (screenshot of the emulator)
+    
+  <p align="center">
+      <picture>
+      <source srcset="images/svg/Window.svg" type="image/svg+xml">
+      <img src="images/png/Window.png" width="900">
+  </picture>
+  </p>
   
 <h1 align="left">
   Gallery :
