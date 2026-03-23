@@ -16,4 +16,4 @@
 - [ ] Fixed a GUI bug with the Kiwano theme
 - [ ] Release automatisation
 - [ ] Testing on macOS and Linux on ARM and x64
-- [ ] Android version to be determined
+- [ ] Android version to be determined with Play store
