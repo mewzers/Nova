@@ -1,102 +1,108 @@
-# Oxide — Interface Utilisateur & Paramètres
+# Oxide — User Interface & Settings
 
-Documentation de l'interface graphique, des fenêtres et du flux des paramètres.
+Documentation of the graphical user interface, windows, and parameter flow.
 
 ---
 
-## Disposition de la fenêtre principale
+## Main Window Layout
 
 ```mermaid
 block-beta
     columns 1
-    TopBar["Barre de menu (30 px)\nJeu | Émulateur | Vidéo | Contrôles | Raccourcis | Debug | Thème ☀/🌙/🌟"]
-    Display["Panneau central\nAffichage CHIP-8 (64×32 × scale)\nOverlay pause / messages"]
-    BottomBar["Barre de statut (30 px)\nVersion | ROM | État | CPU Hz | FPS | Volume"]
+    TopBar["Menu Bar (30 px)\nGame | Emulator | Video | Controls | Shortcuts | Debug | Theme ☀/🌙/🌟"]
+Display["Central panel\nCHIP-8 display (64×32 × scale)\nPause/message overlay"]
+BottomBar["Status Bar (30 px)\nVersion | ROM | Status | CPU Hz | FPS | Volume"]
 ```
 
 ---
 
-## Fenêtres secondaires (viewports détachés)
+## Secondary windows (detached viewports)
 
 ```mermaid
 graph LR
-    Main["Fenêtre principale\n(viewport racine)"]
+Main["Main Window\n(root viewport)"]
 
-    Settings["Paramètres\n(viewport immédiat)\ncentré sur la fenêtre principale"]
-    Terminal["Console debug\n(viewport immédiat)\nà droite de la fenêtre principale"]
 
-    Main -->|"fenetre_settings = true"| Settings
-    Main -->|"terminal_active = true"| Terminal
-    Settings -->|"OK / Cancel / ✕"| Main
-    Terminal -->|"✕ ou checkbox"| Main
+Settings["Settings\n(immediate viewport)\ncentered on the main window"]
+Terminal["Debug console\n(immediate viewport)\nto the right of the main window"]
+
+
+Main -->|"window_settings = true"| Settings
+Main -->|"terminal_active = true"| Terminal
+Settings -->|"OK / Cancel / ✕"| Main
+Terminal -->|"✕ or checkbox"| Main
 ```
 
 ---
 
-## Onglets des paramètres
+## Settings tabs
 
 ```mermaid
 flowchart LR
-    subgraph Tabs["Onglets"]
-        T1["Émulateur\nThème, Langue,\nHz CPU"]
-        T2["Vidéo\nVSync, Échelle"]
-        T3["Audio\nSon, Volume"]
-        T4["Contrôles\nMapping 16 touches\nCHIP-8"]
-        T5["Raccourcis\nMapping 11 raccourcis\nclaviers"]
-        T6["Debug\nTerminal, Quirks\nCHIP-8"]
-    end
+subgraph Tabs["Tabs"]
+T1["Emulator\nTheme, Language,\nCPU Hz"]
+T2["Video\nVSync, Scale"]
+T3["Audio, Volume"]
+T4["Controls\n16-key mapping\nCHIP-8"]
+T5["Shortcuts\nMapping 11 keyboard shortcuts"]
+T6["Debug\nTerminal, Quirks\nCHIP-8"]
+end
 
-    subgraph Actions["Boutons bas de page"]
-        B1["OK → apply + fermer"]
-        B2["Appliquer → apply"]
-        B3["Par défaut → reset onglet"]
-        B4["Annuler → restaurer snapshot"]
-    end
+
+subgraph Actions["Footer buttons"]
+B1["OK → apply + close"]
+B2["Apply → apply"]
+B3["Default → Reset tab"]
+B4["Cancel → Restore Snapshot"]
+end
 ```
 
 ---
 
-## Flux des valeurs temporaires (settings)
+## Temporary data flow (settings)
 
 ```mermaid
 stateDiagram-v2
-    [*] --> Fermé
+[*] --> Closed
 
-    Fermé --> Ouvert : Ouverture\n(snapshot des valeurs live)
-    Ouvert --> Ouvert : Modification\n(temp_* mis à jour)
-    Ouvert --> Live : Appliquer / OK\napply_temp_values()
-    Ouvert --> Live : Annuler\nrestore_snapshots()
-    Live --> Fermé : Fenêtre fermée
-    Live --> [*] : save() au quit
 
-    note right of Ouvert
-        temp_theme, temp_langue,
-        temp_vsync, temp_video_scale,
-        temp_touches, temp_raccourcis,
-        temp_quirks, temp_son_active...
-    end note
+Closed --> Open: Open\n(snapshot of live values)
+Open --> Open: Modification\n(temp_* updated)
+Open --> Live: Apply / OK\napply_temp_values()
+Open --> Live: Cancel\nrestore_snapshots()
+Live --> Closed: Window closed
+Live --> [*] : save() au quit
+
+
+note right of Open
+temp_theme, temp_langue,
+vsync_time, video_scale_time
+temp_touches, temp_raccourcis,
+temp_quirks, temp_son_active...
+end note
+
 ```
 
 ---
 
-## Binding des touches (contrôles)
+## Key Bindings (Controls)
 
 ```mermaid
 sequenceDiagram
     actor User
-    participant UI as Onglet Contrôles
+    participant UI as Controls Tab
     participant App
 
-    User->>UI: Clic sur bouton d'une touche CHIP-8
+    User->>UI: Click on a CHIP-8 button
     UI->>App: binding_key = Some(index)\nbinding_key_started = Instant::now()\nbinding_key_skip_first_click = true
-    UI->>UI: Affiche "..." sur le bouton
+    UI->>UI: Displays "..." on the button
 
-    alt Timeout 3 secondes
+    alt Timeout 3 seconds
         UI->>App: binding_key = None
-    else Touche clavier détectée
+    else Keyboard key detected
         UI->>App: temp_touches[index] = label
         UI->>App: binding_key = None
-    else Clic souris détecté (skip 1er)
+    else Mouse click detected (skip first)
         UI->>App: temp_touches[index] = "MouseLeft/Right/..."
         UI->>App: binding_key = None
     end
@@ -104,18 +110,18 @@ sequenceDiagram
 
 ---
 
-## Pipeline d'entrées clavier → CHIP-8
+## Keyboard Input Pipeline → CHIP-8
 
 ```mermaid
 flowchart TD
-    KB["Clavier (egui InputState)\ntouches configurées dans temp_touches"]
-    Mouse["Souris (egui PointerButton)\nboutons configurés dans temp_touches"]
-    GP["Manette (gilrs)\npoll_chip8_keys()"]
-    Term["Terminal debug\nterminal_keypad_states[16]"]
+    KB["Keyboard (egui InputState)\nkeys configured in temp_keys"]
+    Mouse["Mouse (egui PointerButton)\nbuttons configured in temp_touches"]
+    GP["Gamepad (gilrs)\npoll_chip8_keys()"]
+    Term["Debug terminal\nterminal_keypad_states[16]"]
 
-    OR["OR logique\nstates[i] = clavier || souris || manette || terminal"]
+    OR["Logical OR\nstates[i] = keyboard || mouse || gamepad || terminal"]
 
-    Keypad["Keypad.set_all(states)\n→ CPU.cycle() lit is_pressed()"]
+    Keypad["Keypad.set_all(states)\n→ CPU.cycle() reads is_pressed()"]
 
     KB --> OR
     Mouse --> OR
@@ -126,7 +132,7 @@ flowchart TD
 
 ---
 
-## Thèmes disponibles
+## Available themes
 
 ```mermaid
 flowchart LR
@@ -141,22 +147,22 @@ flowchart LR
 
 ---
 
-## Console debug — fonctionnalités
+## Debug Console — Features
 
 ```mermaid
 graph TD
-    subgraph Terminal["Console Oxide (viewport séparé)"]
-        Logs["Zone de logs\n(TextEdit multiline\nread-only)"]
-        Search["Barre de recherche\n(filtre lignes)"]
-        BtnReport["Bouton 'Rapport de test'\nemit_test_report()"]
-        BtnExport["Bouton 'Exporter logs'\nrfd::FileDialog → .txt"]
+    subgraph Terminal["Oxide Console (separate viewport)"]
+        Logs["Log area\n(multiline TextEdit\nread-only)"]
+        Search["Search bar\n(line filter)"]
+        BtnReport["Test Report button\nemit_test_report()"]
+        BtnExport["Export Logs button\nrfd::FileDialog → .txt"]
     end
 
-    subgraph Content["Contenu des logs"]
-        Boot["Logs de démarrage\n(seed_terminal_boot_logs)"]
-        Config["Changements de config\n(log_config_changes)"]
-        Status["Messages de statut\n(update_terminal_log)"]
-        Report["Rapport de test F9\nPC, registres, quirks..."]
+    subgraph Content["Log Content"]
+        Boot["Boot logs\n(seed_terminal_boot_logs)"]
+        Config["Config changes\n(log_config_changes)"]
+        Status["Status messages\n(update_terminal_log)"]
+        Report["F9 test report\nPC, logs, quirks..."]
     end
 
     BtnReport --> Report
@@ -164,12 +170,12 @@ graph TD
     Config --> Logs
     Status --> Logs
     Report --> Logs
-    Search --> |"filtre"| Logs
-    BtnExport --> |"écrit fichier"| Disk[("Disque .txt")]
+    Search --> |"filter"| Logs
+    BtnExport --> |"write file"| Disk[("Disk .txt")]
 
-    subgraph Files["Fichiers de log auto"]
-        AppLog["logs/app/latest.logs\n→ archivé en .zip au démarrage"]
-        EmuLog["logs/emulator/latest.logs\n→ archivé en .zip au démarrage"]
+    subgraph Files["Auto log files"]
+        AppLog["logs/app/latest.logs\n→ archived as .zip on startup"]
+        EmuLog["logs/emulator/latest.logs\n→ archived as .zip on startup"]
     end
 
     Logs --> AppLog
