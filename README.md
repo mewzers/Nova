@@ -38,6 +38,10 @@ It helps to understand key Rust concepts (memory management, structs, ownership,
 Beyond simply recreating a basic emulator, the objective is also to design a modern CHIP-8 emulator that includes features and interfaces inspired by contemporary emulators. This may include a user-friendly interface, debugging tools, configurable controls, save states, and performance optimizations.
 
 The goal is to provide a solid foundation for both mastering Rust and understanding how emulators work, making it easier to build similar projects for other systems in the future.
+<h2>
+  To view the project roadmap :
+  <a href="https://github.com/OxideChip8/Oxide/blob/main/ROADMAP.md">ROADMAP.md</a>
+</h2>
 
 <h1 align="left"> Compatibility :
 
