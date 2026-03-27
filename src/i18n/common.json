@@ -1,0 +1,13 @@
+{
+    "quirks_preset_chip48": "CHIP-48",
+    "quirks_preset_chip8": "CHIP-8",
+    "quirks_preset_superchip": "SUPER-CHIP",
+    "terminal_fps": "FPS",
+    "terminal_kiwano": "kiwano",
+    "test_report_cpu_label": "CPU",
+    "test_report_quirks_label": "Quirks",
+    "test_report_rom_label": "ROM",
+    "theme_dark_icon": "🌙",
+    "theme_kiwano_icon": "🌟",
+    "theme_light_icon": "☀"
+}

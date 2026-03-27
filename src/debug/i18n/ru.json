@@ -1,0 +1,19 @@
+{
+  "starting_Oxide": "Запуск Oxide...",
+  "terminal_ready": "Терминал готов.",
+  "audio_output_initialized": "Аудиовыход успешно инициализирован.",
+  "audio_output_failed": "Ошибка инициализации аудиовыхода.",
+  "audio_playback_started": "Таймер звука активен, начало воспроизведения.",
+  "audio_playback_stopped": "Таймер звука неактивен, остановка воспроизведения.",
+  "cpu_hard_reset": "Полный сброс CPU.",
+  "cpu_program_loaded": "Программа загружена в память.",
+  "savestate_saved": "Состояние сохранено в слот.",
+  "savestate_loaded": "Состояние загружено из слота.",
+  "savestate_empty": "Слот сохранения пуст.",
+  "emulation_stopped": "Эмуляция остановлена.",
+  "no_recent_rom": "Нет недавней ROM для перезагрузки.",
+  "i18n_fallback_english": "Неверный JSON перевода, используется английский.",
+  "gamepad_mutex_error": "Ошибка захвата мьютекса геймпада.",
+  "oxide_launched": "Oxide запущен.",
+  "oxide_exited": "Oxide закрыт."
+}

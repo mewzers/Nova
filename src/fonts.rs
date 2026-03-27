@@ -1,11 +1,11 @@
-﻿use eframe::egui::{self, FontData, FontDefinitions, FontFamily};
+use eframe::egui::{self, FontData, FontDefinitions, FontFamily};
 
-// Note: Register bundled fonts plus optional Windows fallbacks.
+// EN: Register bundled fonts plus optional Windows fallbacks.
 // FR: Enregistre les polices embarquees plus les fallbacks Windows optionnels.
 pub fn setup_custom_fonts(ctx: &egui::Context) {
     let mut fonts = FontDefinitions::default();
 
-    // Note: Primary bundled fonts shipped with the application.
+    // EN: Primary bundled fonts shipped with the application.
     // FR: Polices principales embarquees avec l application.
     fonts.font_data.insert(
         "noto_sans".to_owned(),
@@ -20,7 +20,7 @@ pub fn setup_custom_fonts(ctx: &egui::Context) {
         FontData::from_static(include_bytes!("assets/fonts/NotoEmoji-Regular.ttf")).into(),
     );
 
-    // Note: Optional Windows fallback fonts for scripts not covered by bundled fonts.
+    // EN: Optional Windows fallback fonts for scripts not covered by bundled fonts.
     // FR: Polices de fallback Windows optionnelles pour les scripts non couverts par les polices embarquees.
     try_add_system_font(&mut fonts, "win_segoe_ui", r"C:\Windows\Fonts\segoeui.ttf");
     try_add_system_font(&mut fonts, "win_nirmala", r"C:\Windows\Fonts\Nirmala.ttf");
@@ -30,7 +30,7 @@ pub fn setup_custom_fonts(ctx: &egui::Context) {
     try_add_system_font(&mut fonts, "win_segoe_symbol", r"C:\Windows\Fonts\seguisym.ttf");
     try_add_system_font(&mut fonts, "win_segoe_emoji", r"C:\Windows\Fonts\seguiemj.ttf");
 
-    // Note: Compose proportional family fallback order.
+    // EN: Compose proportional family fallback order.
     // FR: Construit l ordre de fallback de la famille proportionnelle.
     {
         let proportional = fonts
@@ -48,7 +48,7 @@ pub fn setup_custom_fonts(ctx: &egui::Context) {
         proportional.insert(4, "noto_emoji".to_owned());
     }
 
-    // Note: Compose monospace family fallback order.
+    // EN: Compose monospace family fallback order.
     // FR: Construit l ordre de fallback de la famille monospace.
     {
         let monospace = fonts.families.entry(FontFamily::Monospace).or_default();
@@ -63,7 +63,7 @@ pub fn setup_custom_fonts(ctx: &egui::Context) {
         monospace.insert(4, "noto_emoji".to_owned());
     }
 
-    // Note: Append system fallbacks to both families when available.
+    // EN: Append system fallbacks to both families when available.
     // FR: Ajoute les fallbacks systeme aux deux familles quand disponibles.
     for name in [
         "win_segoe_ui",
@@ -88,12 +88,12 @@ pub fn setup_custom_fonts(ctx: &egui::Context) {
         }
     }
 
-    // Note: Activate the final font configuration.
+    // EN: Activate the final font configuration.
     // FR: Active la configuration finale des polices.
     ctx.set_fonts(fonts);
 }
 
-// Note: Try to load a font file from disk and register it under `name`.
+// EN: Try to load a font file from disk and register it under `name`.
 // FR: Tente de charger une police depuis le disque et de l enregistrer sous `name`.
 fn try_add_system_font(fonts: &mut FontDefinitions, name: &str, path: &str) {
     if let Ok(bytes) = std::fs::read(path) {
@@ -102,3 +102,4 @@ fn try_add_system_font(fonts: &mut FontDefinitions, name: &str, path: &str) {
             .insert(name.to_owned(), FontData::from_owned(bytes).into());
     }
 }
+

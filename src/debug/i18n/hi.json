@@ -1,0 +1,19 @@
+{
+  "starting_Oxide": "Oxide शुरू हो रहा है...",
+  "terminal_ready": "टर्मिनल तैयार है।",
+  "audio_output_initialized": "ऑडियो आउटपुट सफलतापूर्वक प्रारंभ हुआ।",
+  "audio_output_failed": "ऑडियो आउटपुट प्रारंभ करने में विफल।",
+  "audio_playback_started": "साउंड टाइमर सक्रिय, ऑडियो प्लेबैक शुरू हो रहा है।",
+  "audio_playback_stopped": "साउंड टाइमर निष्क्रिय, ऑडियो प्लेबैक रोका जा रहा है।",
+  "cpu_hard_reset": "CPU का पूर्ण रीसेट।",
+  "cpu_program_loaded": "प्रोग्राम मेमोरी में लोड हुआ।",
+  "savestate_saved": "स्लॉट में सेव स्टेट लिखा गया।",
+  "savestate_loaded": "स्लॉट से सेव स्टेट लोड हुआ।",
+  "savestate_empty": "सेव स्लॉट खाली है।",
+  "emulation_stopped": "एमुलेशन रोका गया।",
+  "no_recent_rom": "पुनः लोड करने के लिए कोई हालिया ROM नहीं।",
+  "i18n_fallback_english": "अनुवाद JSON अमान्य है, अंग्रेज़ी पर वापस जा रहे हैं।",
+  "gamepad_mutex_error": "गेमपैड mutex लॉक प्राप्त करने में विफल।",
+  "oxide_launched": "Oxide शुरू हो गया।",
+  "oxide_exited": "Oxide बंद हो गया।"
+}

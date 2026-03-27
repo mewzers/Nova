@@ -1,0 +1,19 @@
+{
+  "starting_Oxide": "Starting Oxide application...",
+  "terminal_ready": "Terminal ready.",
+  "audio_output_initialized": "Audio output initialized successfully.",
+  "audio_output_failed": "Failed to initialize audio output.",
+  "audio_playback_started": "Sound timer active, starting audio playback.",
+  "audio_playback_stopped": "Sound timer inactive, stopping audio playback.",
+  "cpu_hard_reset": "CPU hard reset.",
+  "cpu_program_loaded": "Program loaded into memory.",
+  "savestate_saved": "Save state written to slot.",
+  "savestate_loaded": "Save state loaded from slot.",
+  "savestate_empty": "Save state slot is empty.",
+  "emulation_stopped": "Emulation stopped.",
+  "no_recent_rom": "No recent ROM to reload.",
+  "translation_parse_failed": "Failed to parse translation file, using fallback.",
+  "gamepad_mutex_error": "Failed to acquire gamepad mutex lock.",
+  "oxide_launched": "Oxide launched.",
+  "oxide_exited": "Oxide exited."
+}

@@ -1,31 +1,36 @@
-﻿use std::sync::Mutex;
+use std::sync::Mutex;
 
 use gilrs::{Button, Gilrs};
 use once_cell::sync::Lazy;
 
-// Note: Shared gamepad context initialized once for the whole application.
+use crate::debug;
+// EN: Shared gamepad context initialized once for the whole application.
 // FR: Contexte manette partage initialise une seule fois pour toute l application.
 static GILRS: Lazy<Mutex<Option<Gilrs>>> = Lazy::new(|| Mutex::new(Gilrs::new().ok()));
 
-// Note: Return true if any button in the provided set is pressed.
+// EN: Return true if any button in the provided set is pressed.
 // FR: Retourne vrai si au moins un bouton de l ensemble fourni est appuye.
 fn any_pressed(gamepad: &gilrs::Gamepad<'_>, buttons: &[Button]) -> bool {
     buttons.iter().any(|b| gamepad.is_pressed(*b))
 }
 
-// Note: Poll controller state and map it to the 16 CHIP-8 keys.
+// EN: Poll controller state and map it to the 16 CHIP-8 keys.
 // FR: Lit l etat du controleur et le mappe aux 16 touches CHIP-8.
 pub fn poll_chip8_keys() -> [bool; 16] {
     let mut keys = [false; 16];
     let mut guard = match GILRS.lock() {
         Ok(g) => g,
-        Err(_) => return keys,
+        Err(_) => {
+            debug::log("gamepad_mutex_error");
+            return keys;
+        }
     };
+
     let Some(gilrs) = guard.as_mut() else {
         return keys;
     };
 
-    // Note: Drain pending events so button states stay up to date.
+    // EN: Drain pending events so button states stay up to date.
     // FR: Vide les evenements en attente pour garder les etats de boutons a jour.
     while gilrs.next_event().is_some() {}
 
@@ -54,3 +59,4 @@ pub fn poll_chip8_keys() -> [bool; 16] {
 
     keys
 }
+

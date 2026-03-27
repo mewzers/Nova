@@ -1,0 +1,19 @@
+{
+  "starting_Oxide": "جارٍ تشغيل Oxide...",
+  "terminal_ready": "الطرفية جاهزة.",
+  "audio_output_initialized": "تم تهيئة مخرج الصوت بنجاح.",
+  "audio_output_failed": "فشل تهيئة مخرج الصوت.",
+  "audio_playback_started": "مؤقت الصوت نشط، بدء تشغيل الصوت.",
+  "audio_playback_stopped": "مؤقت الصوت غير نشط، إيقاف تشغيل الصوت.",
+  "cpu_hard_reset": "إعادة تعيين كاملة للمعالج.",
+  "cpu_program_loaded": "تم تحميل البرنامج في الذاكرة.",
+  "savestate_saved": "تم كتابة حالة الحفظ في الفتحة.",
+  "savestate_loaded": "تم تحميل حالة الحفظ من الفتحة.",
+  "savestate_empty": "فتحة الحفظ فارغة.",
+  "emulation_stopped": "توقف المحاكي.",
+  "no_recent_rom": "لا توجد ROM حديثة لإعادة التحميل.",
+  "i18n_fallback_english": "ملف JSON للترجمة غير صالح، الرجوع إلى الإنجليزية.",
+  "gamepad_mutex_error": "فشل الحصول على قفل mutex لوحدة التحكم.",
+  "oxide_launched": "تم تشغيل Oxide.",
+  "oxide_exited": "تم إغلاق Oxide."
+}

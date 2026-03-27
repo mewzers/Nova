@@ -1,0 +1,19 @@
+{
+  "starting_Oxide": "Oxide wird gestartet...",
+  "terminal_ready": "Terminal bereit.",
+  "audio_output_initialized": "Audioausgabe erfolgreich initialisiert.",
+  "audio_output_failed": "Fehler beim Initialisieren der Audioausgabe.",
+  "audio_playback_started": "Sound-Timer aktiv, Audiowiedergabe wird gestartet.",
+  "audio_playback_stopped": "Sound-Timer inaktiv, Audiowiedergabe wird gestoppt.",
+  "cpu_hard_reset": "Vollständiger CPU-Reset.",
+  "cpu_program_loaded": "Programm in den Speicher geladen.",
+  "savestate_saved": "Spielstand im Slot gespeichert.",
+  "savestate_loaded": "Spielstand aus dem Slot geladen.",
+  "savestate_empty": "Der Speicherslot ist leer.",
+  "emulation_stopped": "Emulation gestoppt.",
+  "no_recent_rom": "Keine neuere ROM zum Neuladen vorhanden.",
+  "i18n_fallback_english": "Ungültige Übersetzungs-JSON, verwende Englisch.",
+  "gamepad_mutex_error": "Gamepad-Mutex-Sperre fehlgeschlagen.",
+  "oxide_launched": "Oxide gestartet.",
+  "oxide_exited": "Oxide beendet."
+}

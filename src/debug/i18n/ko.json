@@ -1,0 +1,19 @@
+{
+  "starting_Oxide": "Oxide 시작 중...",
+  "terminal_ready": "터미널 준비 완료.",
+  "audio_output_initialized": "오디오 출력이 성공적으로 초기화되었습니다.",
+  "audio_output_failed": "오디오 출력 초기화에 실패했습니다.",
+  "audio_playback_started": "사운드 타이머 활성, 오디오 재생 시작.",
+  "audio_playback_stopped": "사운드 타이머 비활성, 오디오 재생 중지.",
+  "cpu_hard_reset": "CPU 전체 리셋.",
+  "cpu_program_loaded": "프로그램이 메모리에 로드되었습니다.",
+  "savestate_saved": "슬롯에 저장 상태가 기록되었습니다.",
+  "savestate_loaded": "슬롯에서 저장 상태가 로드되었습니다.",
+  "savestate_empty": "저장 슬롯이 비어 있습니다.",
+  "emulation_stopped": "에뮬레이션이 중지되었습니다.",
+  "no_recent_rom": "다시 로드할 최근 ROM이 없습니다.",
+  "i18n_fallback_english": "번역 JSON이 잘못되었습니다. 영어로 대체합니다.",
+  "gamepad_mutex_error": "게임패드 뮤텍스 잠금 실패.",
+  "oxide_launched": "Oxide가 시작되었습니다.",
+  "oxide_exited": "Oxide가 종료되었습니다."
+}

@@ -5,3 +5,9 @@ Thumbs.db
 .vscode/
 .idea/
 *.log
+*.txt
+*.zip
+*.bat
+*.logs
+logs/
+

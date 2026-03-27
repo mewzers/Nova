@@ -1,0 +1,19 @@
+{
+  "starting_Oxide": "正在启动 Oxide...",
+  "terminal_ready": "终端就绪。",
+  "audio_output_initialized": "音频输出初始化成功。",
+  "audio_output_failed": "音频输出初始化失败。",
+  "audio_playback_started": "声音计时器激活，开始音频播放。",
+  "audio_playback_stopped": "声音计时器停止，停止音频播放。",
+  "cpu_hard_reset": "CPU 完全重置。",
+  "cpu_program_loaded": "程序已加载到内存。",
+  "savestate_saved": "存档已写入槽位。",
+  "savestate_loaded": "存档已从槽位加载。",
+  "savestate_empty": "存档槽位为空。",
+  "emulation_stopped": "模拟已停止。",
+  "no_recent_rom": "没有最近的 ROM 可重新加载。",
+  "i18n_fallback_english": "翻译 JSON 无效，回退到英语。",
+  "gamepad_mutex_error": "获取手柄互斥锁失败。",
+  "oxide_launched": "Oxide 已启动。",
+  "oxide_exited": "Oxide 已关闭。"
+}

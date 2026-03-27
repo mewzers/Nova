@@ -1,0 +1,19 @@
+{
+  "starting_Oxide": "Oxide を起動中...",
+  "terminal_ready": "ターミナル準備完了。",
+  "audio_output_initialized": "オーディオ出力の初期化に成功しました。",
+  "audio_output_failed": "オーディオ出力の初期化に失敗しました。",
+  "audio_playback_started": "サウンドタイマー有効、音声再生を開始します。",
+  "audio_playback_stopped": "サウンドタイマー無効、音声再生を停止します。",
+  "cpu_hard_reset": "CPU をフルリセットしました。",
+  "cpu_program_loaded": "プログラムをメモリに読み込みました。",
+  "savestate_saved": "セーブデータをスロットに書き込みました。",
+  "savestate_loaded": "セーブデータをスロットから読み込みました。",
+  "savestate_empty": "セーブスロットは空です。",
+  "emulation_stopped": "エミュレーションを停止しました。",
+  "no_recent_rom": "再読み込みする最近の ROM がありません。",
+  "i18n_fallback_english": "翻訳 JSON が無効です。英語にフォールバックします。",
+  "gamepad_mutex_error": "ゲームパッドのミューテックス取得に失敗しました。",
+  "oxide_launched": "Oxide を起動しました。",
+  "oxide_exited": "Oxide を終了しました。"
+}

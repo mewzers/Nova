@@ -1,11 +1,13 @@
 * text=auto
 
-*.rs text working-tree-encoding=UTF-8
-*.toml text working-tree-encoding=UTF-8
-*.json text working-tree-encoding=UTF-8
-*.md text working-tree-encoding=UTF-8
-*.txt text working-tree-encoding=UTF-8
+*.rs text eol=lf working-tree-encoding=UTF-8
+*.toml text eol=lf working-tree-encoding=UTF-8
+*.json text eol=lf working-tree-encoding=UTF-8
+*.md text eol=lf working-tree-encoding=UTF-8
+*.txt text eol=lf working-tree-encoding=UTF-8
 
 *.ttf binary
 *.ttc binary
+*.yml text eol=lf working-tree-encoding=UTF-8
+*.yaml text eol=lf working-tree-encoding=UTF-8
 
